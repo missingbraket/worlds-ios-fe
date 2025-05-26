@@ -33,15 +33,3 @@ struct QuestionDetailView: View {
     }
 }
 
-#Preview {
-    let sampleQuestion = Question(
-        id: 1,
-        title: "미리보기용 질문 제목",
-        content: "미리보기용 질문 내용. 나 이거 궁금하다~ 알랴줘봐",
-        createdAt: Date(),
-        deletedAt: nil,
-        userId: 1
-    )
-    
-    return QuestionDetailView(question: sampleQuestion)
-}
