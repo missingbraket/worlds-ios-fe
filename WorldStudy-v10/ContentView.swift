@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  WorldStudy-v1
+//  WorldStudy-v10
 //
 //  Created by 이서하 on 5/23/25.
 //
