@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9F25336C2DE4C9F500B526A5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9F25336B2DE4C9F500B526A5 /* Alamofire */; };
-		9F25336E2DE4C9F500B526A5 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9F25336D2DE4C9F500B526A5 /* AlamofireDynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F25336C2DE4C9F500B526A5 /* Alamofire in Frameworks */,
-				9F25336E2DE4C9F500B526A5 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +71,6 @@
 			name = "WorldStudy-v10";
 			packageProductDependencies = (
 				9F25336B2DE4C9F500B526A5 /* Alamofire */,
-				9F25336D2DE4C9F500B526A5 /* AlamofireDynamic */,
 			);
 			productName = "WorldStudy-v10";
 			productReference = 9F2533392DE4C1B200B526A5 /* WorldStudy-v10.app */;
@@ -353,11 +350,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9F25336A2DE4C9F500B526A5 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		9F25336D2DE4C9F500B526A5 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9F25336A2DE4C9F500B526A5 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
