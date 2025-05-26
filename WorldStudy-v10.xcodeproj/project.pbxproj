@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9F25336C2DE4C9F500B526A5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9F25336B2DE4C9F500B526A5 /* Alamofire */; };
+		9F25336E2DE4C9F500B526A5 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9F25336D2DE4C9F500B526A5 /* AlamofireDynamic */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9F2533392DE4C1B200B526A5 /* WorldStudy-v10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WorldStudy-v10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F25336C2DE4C9F500B526A5 /* Alamofire in Frameworks */,
+				9F25336E2DE4C9F500B526A5 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = "WorldStudy-v10";
 			packageProductDependencies = (
+				9F25336B2DE4C9F500B526A5 /* Alamofire */,
+				9F25336D2DE4C9F500B526A5 /* AlamofireDynamic */,
 			);
 			productName = "WorldStudy-v10";
 			productReference = 9F2533392DE4C1B200B526A5 /* WorldStudy-v10.app */;
@@ -94,6 +103,9 @@
 			);
 			mainGroup = 9F2533302DE4C1B200B526A5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9F25336A2DE4C9F500B526A5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9F25333A2DE4C1B200B526A5 /* Products */;
 			projectDirPath = "";
@@ -324,6 +336,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9F25336A2DE4C9F500B526A5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F25336B2DE4C9F500B526A5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F25336A2DE4C9F500B526A5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		9F25336D2DE4C9F500B526A5 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F25336A2DE4C9F500B526A5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9F2533312DE4C1B200B526A5 /* Project object */;
 }
