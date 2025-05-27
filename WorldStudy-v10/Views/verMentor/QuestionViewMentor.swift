@@ -1,6 +1,13 @@
+//
+//  QuestionView.swift
+//  WorldStudy-v10
+//
+//  Created by 이서하 on 5/27/25.
+//
+
 import SwiftUI
 
-struct QuestionView: View {
+struct QuestionViewMentor: View {
 //    @Binding var isPresented: Bool
     @State private var showingCreateQuestionSheet = false
     @State private var newQuestionTitle = ""
@@ -59,11 +66,12 @@ struct QuestionView: View {
             }
             //            .navigationTitle("게시판")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("질문하기") {
-                        showingCreateQuestionSheet = true
-                    }
-                }
+                //질문 상세(멘토ver)들어가서 >>답변하기Btn<< 추가
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button("답변하기") {
+//                        showingCreateQuestionSheet = true
+//                    }
+//                }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         //화면이동
@@ -117,6 +125,6 @@ struct QuestionView: View {
         }
     }
     #Preview {
-        QuestionView(viewModel: QBoardViewModel())
+        QuestionViewMentor(viewModel: QBoardViewModel())
         //isPresented: .constant(true), : 프리뷰에서 isPresented를 항상 true로 설정해주는 바인딩
     }
