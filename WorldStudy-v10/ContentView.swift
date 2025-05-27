@@ -25,6 +25,12 @@ struct ContentView: View {
                     Image(systemName: "person.crop.circle")
                     Text("마이페이지")
                 }
+            
+            QuestionViewMentee(viewModel: QBoardViewModel())
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("마이페이지")
+                }
         }
     }
 }

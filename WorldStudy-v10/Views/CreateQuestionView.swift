@@ -51,6 +51,12 @@ struct CreateQuestionView: View {
                       Button("Camera") {
                           imagePickerSourceType = .camera
                           isShowingImagePicker = true
+//                          if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//                                  imagePickerSourceType = .camera
+//                                  isShowingImagePicker = true
+//                              } else {
+//                                  print("카메라 사용 불가")
+//                              }
                       }
                       Button("Photo") {
                           imagePickerSourceType = .photoLibrary
@@ -72,7 +78,7 @@ struct CreateQuestionView: View {
                 }
 
                 Button {
-                    onSubmit() 
+                    onSubmit()
                 } label: {
                     Text("등록")
                         .foregroundColor(.white)
