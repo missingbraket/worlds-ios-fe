@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class APIService {
     static let shared = APIService()
@@ -48,28 +49,59 @@ class APIService {
         return response
     }
     
-    //글 작성
-    func createQuestion(title: String, content: String, token: String) async throws -> Bool {
-        let params = ["title": title, "content": content, "createdAt": Date().description]
+   //글 작성
+    
+//    func createQuestion(title: String, content: String, token: String) async throws -> Bool {
+//        let params = ["title": title, "content": content, "createdAt": Date().description]
+//        let headers = try getAuthHeaders()
+//        
+//        let response = await AF.request("\(baseURL)/question", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+//            .validate()
+//            .serializingData() //->왜 serializingDecodable안썻는지: 서버 응답안받아도돼서. 그냥 성공하면 업로드 되고 끝나면 되니까
+//        // 응답 데이터를 Data 형식으로 받음 (JSON을 직접 디코딩 안 함)
+//            .response // Alamofire.AFDataResponse<Data> 타입의 전체 응답을 받음
+//        
+//                return response.error == nil
+//    }
+    func createQuestion(title: String, content: String, image: UIImage?) async throws -> Bool {
         let headers = try getAuthHeaders()
-        
-        let response = await AF.request("\(baseURL)/question", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
-            .validate()
-            .serializingData() //->왜 serializingDecodable안썻는지: 서버 응답안받아도돼서. 그냥 성공하면 업로드 되고 끝나면 되니까
-        // 응답 데이터를 Data 형식으로 받음 (JSON을 직접 디코딩 안 함)
-            .response // Alamofire.AFDataResponse<Data> 타입의 전체 응답을 받음
-        
-                return response.error == nil
-        
-//        try await 쓸 경우 ?..
-//        do {
-//            _ = try response.result.get()
-//            return true
-//        } catch {
-//            return false
-//        }
+        let url = "\(baseURL)/question"
+
+        if let image = image, let imageData = image.jpegData(compressionQuality: 0.8) {
+            //이미지까지 전송
+            return try await withCheckedThrowingContinuation { continuation in
+                AF.upload(multipartFormData: { formData in
+                    formData.append(Data(title.utf8), withName: "title")
+                    formData.append(Data(content.utf8), withName: "content")
+                    formData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
+                }, to: url, method: .post, headers: headers)
+                .validate()
+                .response { response in
+                    if let error = response.error {
+                        continuation.resume(throwing: error)
+                    } else {
+                        continuation.resume(returning: true)
+                    }
+                }
+            }
+        } else {
+            // 질문 글만 전송
+            let params = [
+                "title": title,
+                "content": content,
+                "createdAt": Date().description
+            ]
+            
+            let response = await AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+                .validate()
+                .serializingData()
+                .response
+            
+            return response.error == nil
+        }
     }
     
+
     //댓글 작성
     func createAnswer(questionId: Int, content: String) async throws -> Bool {
         let params = ["content": content]

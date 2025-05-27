@@ -72,7 +72,7 @@ struct CreateQuestionView: View {
                 }
 
                 Button {
-                    onSubmit()
+                    onSubmit() 
                 } label: {
                     Text("등록")
                         .foregroundColor(.white)
