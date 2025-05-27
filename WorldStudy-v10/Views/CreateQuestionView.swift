@@ -15,6 +15,11 @@ struct CreateQuestionView: View {
     @Binding var errorMessage: String?
     @Environment(\.presentationMode) var presentationMode
 //    @State private var goToQuestionView = false
+    
+    @State private var isShowingImagePicker = false
+    @State private var selectedImage: UIImage?
+    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
+    
     var onSubmit: () -> Void
 
     var body: some View {
@@ -34,12 +39,22 @@ struct CreateQuestionView: View {
                 TextField("제목", text: $title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
+                if let image = selectedImage {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 200)
+                                .cornerRadius(8)
+                        }
+                
                 Menu("사진 추가하기") {
                       Button("Camera") {
-                        print("Normal")
+                          imagePickerSourceType = .camera
+                          isShowingImagePicker = true
                       }
                       Button("Photo") {
-                        print("Formatted")
+                          imagePickerSourceType = .photoLibrary
+                          isShowingImagePicker = true
                       }
                     }
 
@@ -84,6 +99,9 @@ struct CreateQuestionView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $isShowingImagePicker) {
+            ImagePickerView(selectedImage: $selectedImage, sourceType: imagePickerSourceType)
         }
     }
 }

@@ -32,4 +32,25 @@ struct QuestionDetailView: View {
         .padding()
     }
 }
-
+//struct QuestionDetailView: View {
+//    let question: Question
+//
+//    var body: some View {
+//        VStack(alignment: .leading, spacing: 12) {
+//            Text(question.title).font(.title2).bold()
+//            Text(question.content)
+//            Divider()
+//            Text("댓글")
+//                .font(.headline)
+//            List(question.answers) { answer in
+//                VStack(alignment: .leading) {
+//                    Text(answer.user).font(.subheadline).bold() //Text(answer.userId.nickname).font(.subheadline).bold()
+//                    Text(answer.content)
+//                }
+//            }
+//        }
+//        .padding()
+//        .navigationTitle("게시글")
+//    }
+//}
+//
