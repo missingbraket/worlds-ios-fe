@@ -29,7 +29,12 @@ struct ContentView: View {
             QuestionViewMentee(viewModel: QBoardViewModel())
                 .tabItem {
                     Image(systemName: "person.crop.circle")
-                    Text("마이페이지")
+                    Text("멘티확인용")
+                }
+            QuestionViewMentor(viewModel: QBoardViewModel())
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("멘토확인용")
                 }
         }
     }
