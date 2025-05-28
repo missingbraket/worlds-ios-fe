@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class QBoardViewModel: ObservableObject {
     @Published var questions: [Question] = [] //질문리스트
@@ -30,14 +31,27 @@ class QBoardViewModel: ObservableObject {
         
         Task {
             do {
-                let question = try await APIService.shared.fethQuestionDetail(questionId: questionId)
+                let questions = try await APIService.shared.fethQuestionDetail(questionId: questionId)
                 await MainActor.run {
-                    self.selectedQuestion = question
+                    self.selectedQuestion = questions
                 }
             }catch{
                 
             }
         }
-        
+    }
+    
+    func createQuestion(title: String, content: String, image: UIImage?, onSuccess: @escaping () -> Void) {
+        Task {
+            do {
+                let success = try await APIService.shared.createQuestion(title: title, content: content, image: image)
+                if success {
+                    await fetchQuestions() // 질문 등록 후 목록 새로고침
+                    onSuccess()
+                }
+            } catch {
+                print("질문 등록 실패: \(error)")
+            }
+        }
     }
 }
