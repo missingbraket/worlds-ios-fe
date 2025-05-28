@@ -15,4 +15,6 @@ struct Question: Codable, Identifiable, Hashable {
     let createdAt: Date
     let deletedAt: Date?
     let userId: Int
+    
+    let answers: [Answer]?
 }
