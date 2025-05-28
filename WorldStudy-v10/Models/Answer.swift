@@ -12,7 +12,7 @@ struct Answer: Codable, Identifiable, Hashable {
     let id: Int
     let content: String
     let userId: String
-    let questionId: Date
+    let questionId: Int
     let createdAt: Date
     let deletedAt: Date?
 }
