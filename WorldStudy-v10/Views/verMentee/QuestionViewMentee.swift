@@ -44,7 +44,7 @@ struct QuestionViewMentee: View {
                     .padding(.leading, 25)
                     .padding(.top, 15)
                 
-                Text("멘토 친구들에게 물어봐요 🌱")
+                Text("멘토 친구들에게 물어보세요 🌱")
                     .font(.title3)
                     .foregroundColor(.black)
                     .fontWeight(.bold)
