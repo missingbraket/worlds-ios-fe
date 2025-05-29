@@ -20,7 +20,7 @@ struct CreateQuestionView: View {
     @State private var selectedImage: UIImage?
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
     
-    var onSubmit: () -> Void
+    var onSubmit: (_ selectedImage: UIImage?) -> Void
 
     var body: some View {
         NavigationView {
@@ -78,7 +78,7 @@ struct CreateQuestionView: View {
                 }
 
                 Button {
-                    onSubmit()
+                    onSubmit(selectedImage)
                 } label: {
                     Text("등록")
                         .foregroundColor(.white)
