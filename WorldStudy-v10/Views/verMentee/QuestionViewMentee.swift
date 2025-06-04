@@ -64,6 +64,7 @@ struct QuestionViewMentee: View {
                         .padding(.vertical, 4)
                     }
                 }
+            }
                 
                 //            .navigationTitle("게시판")
                 .toolbar {
@@ -96,7 +97,7 @@ struct QuestionViewMentee: View {
                         isPresented: $showingCreateQuestionSheet,
                         isCreating: $isCreatingQuestion,
                         errorMessage: $createQuestionError,
-                        onSubmit: {
+                        onSubmit: { _ in isCreatingQuestion = true
                             Task {
                                 isCreatingQuestion = true
                                 do {
@@ -124,7 +125,7 @@ struct QuestionViewMentee: View {
             }
         }
     }
-}
+
     #Preview {
         QuestionViewMentee(viewModel: QBoardViewModel())
         //isPresented: .constant(true), : 프리뷰에서 isPresented를 항상 true로 설정해주는 바인딩
