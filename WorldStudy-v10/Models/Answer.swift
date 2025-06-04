@@ -8,7 +8,7 @@
 // (멘토)질문게시판 속 답변 데이터 모델링
 import Foundation
 
-struct Answer: Codable, Identifiable, Hashable, Equatable, Hashable {
+struct Answer: Codable, Identifiable, Hashable {
     let id: Int
     let content: String
     let userId: String
