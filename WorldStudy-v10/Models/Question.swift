@@ -13,8 +13,10 @@ struct Question: Codable, Identifiable, Hashable {
     let title: String
     let content: String
     let createdAt: Date
-    let deletedAt: Date?
+//    let deletedAt: Date?
+    let user: String
     let userId: Int
     
     let answers: [Answer]?
+    let attachments: [Attachment]?
 }
