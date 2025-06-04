@@ -17,6 +17,5 @@ struct Question: Codable, Identifiable, Hashable {
     let user: String
     let userId: Int
     
-    let answers: [Answer]?
     let attachments: [Attachment]?
 }
