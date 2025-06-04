@@ -103,14 +103,15 @@ class APIService {
     
 
     //댓글 작성
-    func createAnswer(questionId: Int, content: String) async throws -> Bool {
+    func createAnswer(questionId: Int, content: String) async throws -> Answer {
         let params = ["content": content]
         let headers = try getAuthHeaders()
-        let response = await AF.request("(baseURL)/question/\(questionId)/answer", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+        
+        let answer = try await AF.request("\(baseURL)/question/\(questionId)/answer", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
             .validate()
-            .serializingData()
-            .response
-        return response.error == nil
+            .serializingDecodable(Answer.self)
+            .value
+        return answer
     }
     
     //댓글 목록 조회
